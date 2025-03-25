@@ -1,56 +1,60 @@
 # Spam-SMS-Detection
 
-This project aims to develop a machine-learning model to detect spam messages in SMS text data. It utilizes natural language processing (NLP) techniques and a supervised learning algorithm to classify SMS messages as either spam or non-spam (ham).
+## Overview
+SMS Spam Detection is a machine learning model that takes an SMS as input and predicts whether the message is a spam or not spam message. The model is built using Python and deployed on the web using Streamlit.
 
-## Dataset
+## Technology Used
+- Python
+- Scikit-learn
+- Pandas
+- NumPy
+- Streamlit
 
-The dataset used for this project is the "SMS Spam Collection" from the UCI Machine Learning Repository. It contains a collection of 5,574 SMS messages, labeled as spam or ham. The dataset can be downloaded from (https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset).
+## Features
+- Data collection
+- Data cleaning and preprocessing
+- Exploratory Data Analysis
+- Model building and selection
+- Web deployment using Streamlit
 
-The dataset file (`spam.csv`) contains two columns:
-- `label`: Indicates whether the message is spam (1) or ham (0).
-- `text`: The actual text content of the SMS message.
+### Data Collection
+The SMS Spam Collection dataset was collected from Kaggle, which contains over 5,500 SMS messages labeled as either spam or not spam.
+You can access the dataset from [here](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset)
 
-## Requirements
+### Data Cleaning and Preprocessing
+The data was cleaned by handling null and duplicate values, and the "type" column was label-encoded. The data was then preprocessed by converting the text into tokens, removing special characters, stop words and punctuation, and stemming the data. The data was also converted to lowercase before preprocessing.
 
-To run the project, you need the following dependencies:
-- Python 3.x
-- pandas
-- numpy
-- scikit-learn
-- nltk (Natural Language Toolkit)
-- matplotlib
+### Exploratory Data Analysis
+Exploratory Data Analysis was performed to gain insights into the dataset. The count of characters, words, and sentences was calculated for each message. The correlation between variables was also calculated, and visualizations were created using pyplots, bar charts, pie charts, 5 number summaries, and heatmaps. Word clouds were also created for spam and non-spam messages, and the most frequent words in spam texts were visualized.
 
-You can install the required packages by running the following command:
+### Model Building and Selection
+Multiple classifier models were tried, including NaiveBayes, random forest, KNN, decision tree, logistic regression, ExtraTreesClassifier, and SVC. The best classifier was chosen based on precision, with a precision of 100% achieved.
 
-```
-pip install pandas numpy scikit-learn nltk matplotlib
-```
+### Web Deployment
+The model was deployed on the web using Streamlit. The user interface has a simple input box where the user can input a message, and the model will predict whether it is spam or not spam.
+
 
 ## Usage
+To use the SMS Spam Detection model on your own machine, follow these steps:
 
-1. Clone the repository or download the project files.
++ Clone this repository.
++ Install the required Python packages using 
+```
+pip install -r requirements.txt.
+```
++ Run the model using 
+```
+streamlit run app.py.
+```
++ Visit localhost:8501 on your web browser to access the web app.
 
-2. Place the `spam.csv` file in the project directory.
-
-3. Run the `sms_spam_detection.py` script to train and evaluate the spam detection model.
-
-4. The script will load the dataset, preprocess the text data, and train a machine learning model using the TF-IDF (Term Frequency-Inverse Document Frequency) technique.
-
-5. After training, the model will be evaluated on a holdout set and the performance metrics (such as accuracy, precision, recall, and F1-score) will be displayed.
-
-6. Finally, you can use the trained model to predict the label (spam/ham) of new SMS messages by modifying the `predict` function in the script.
 
 
-## Results
 
-The trained model achieved an **accuracy of 97.10 %** and **Precision is 100 %** on the test set and performed well in terms of precision, recall, and F1-score.
 
-| Metric     | Score |
-|------------|-------|
-| Accuracy   | 97.10 %   |
-| Precision | 100 %   |
-| Recall     | 76.19 %   |
-| F1-score   | 86.49 %   |
+
+
+##
 
 
 
